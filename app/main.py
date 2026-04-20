@@ -1,9 +1,6 @@
 from __future__ import annotations
 
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse
@@ -25,21 +22,7 @@ configure_logging()
 log = get_logger()
 app = FastAPI(title="Day 13 Observability Lab")
 app.add_middleware(CorrelationIdMiddleware)
-# Cùng một biến MODEL_NAME cho FakeLLM và field model trong log / trace tags
-agent = LabAgent(model=os.getenv("MODEL_NAME", "claude-sonnet-4-5"))
-
-
-@app.get("/")
-async def root() -> dict:
-    return {
-        "message": "Welcome to Day 13 Observability Lab API",
-        "endpoints": {
-            "health": "/health",
-            "metrics": "/metrics",
-            "chat": "/chat (POST)",
-            "docs": "/docs"
-        }
-    }
+agent = LabAgent()
 
 
 @app.on_event("startup")
@@ -64,11 +47,15 @@ async def metrics() -> dict:
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: Request, body: ChatRequest) -> ChatResponse:
+    # TODO: Enrich logs with request context (user_id_hash, session_id, feature, model, env)
+    # bind_contextvars(...)
+    
+    # Enrich logs with request context
     bind_contextvars(
         user_id_hash=hash_user_id(body.user_id),
         session_id=body.session_id,
         feature=body.feature,
-        model=agent.model,
+        model=os.getenv("MODEL_NAME", "gpt-4"),
         env=os.getenv("APP_ENV", "dev"),
     )
     
