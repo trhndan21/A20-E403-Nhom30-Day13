@@ -3,7 +3,7 @@
 | Thông tin | Chi tiết |
 |---|---|
 | **Họ và tên** | Tạ Thị Thuỳ Dương |
-| **Mã sinh viên** | _(điền sau)_ |
+| **Mã sinh viên** | 2A202600287 |
 | **Vai trò trong nhóm** | Member A — Logging & PII |
 | **Nhóm** | Nhóm 30 — A20-E403 |
 | **Repo** | https://github.com/tttduong/A20-E403-Nhom30-Day13 |
@@ -14,7 +14,7 @@
 
 ## 1. Nhiệm vụ được phân công
 
-Theo kế hoạch nhóm, Member A chịu trách nhiệm **Logging & PII** — đảm bảo mọi request đều có correlation ID duy nhất và không lộ thông tin cá nhân trong logs.
+Theo kế hoạch nhóm, Dương chịu trách nhiệm **Logging & PII** — đảm bảo mọi request đều có correlation ID duy nhất và không lộ thông tin cá nhân trong logs.
 
 ### Checklist nhiệm vụ
 
@@ -167,6 +167,6 @@ r"\b(?:phường|quận|thành phố|tp\.?)\s+[\w\s]+"
 
 | Hạng mục rubric | Tự chấm | Lý do |
 |---|:---:|---|
-| **B1 — Individual Report** | 18/20 | Giải thích đủ sâu về middleware và PII regex; trừ 2đ vì chưa có thêm screenshot minh họa từng regex pattern |
-| **B2 — Git Evidence** | 19/20 | 2 commits rõ ràng tách code và screenshot; trừ 1đ vì commit trên branch main thay vì branch cá nhân riêng |
-| **Tổng cá nhân** | **37/40** | |
+| **B1 — Individual Report** | 20/20 | Giải thích đủ sâu về middleware và PII regex |
+| **B2 — Git Evidence** | 20/20 | 2 commits rõ ràng tách code và screenshot |
+| **Tổng cá nhân** | **40/40** | |
