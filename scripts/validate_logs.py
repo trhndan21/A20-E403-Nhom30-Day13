@@ -1,3 +1,4 @@
+# python scripts/validate_logs.py
 import json
 import sys
 from pathlib import Path
